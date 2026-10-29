@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MenuSection from '../components/MenuSection.astro';
+import { restaurant } from '../data/restaurant';
+import { setMenus } from '../data/menu';
+---
+<BaseLayout>
+  <header class="site-header">
+    <a class="brand" href="#accueil" aria-label="Restaurant Taj Mahal, accueil"><span class="brand-mark" aria-hidden="true">✦</span><span>TAJ <b>MAHAL</b><small>MANOSQUE · DEPUIS 2001</small></span></a>
+    <nav class="primary-nav" aria-label="Navigation principale"><a href="#accueil">Accueil</a><a href="#carte">La carte</a><a href="#menus">Menus</a><a href="#histoire">Notre cuisine</a><a href="#contact">Contact</a></nav>
+    <a class="button button-small header-call" href={restaurant.phoneLink}>Appeler</a>
+    <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Ouvrir le menu">☰</button>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile" hidden><a href="#accueil">Accueil</a><a href="#carte">La carte</a><a href="#menus">Menus</a><a href="#histoire">Notre cuisine</a><a href="#contact">Contact</a><a href={restaurant.phoneLink}>Appeler le restaurant</a></nav>
+  </header>
+  <main>
+    <section class="hero" id="accueil">
+      <div class="hero-content">
+        <p class="eyebrow eyebrow-light"><span></span> Manosque · Depuis 2001</p>
+        <h1>Le Taj Mahal,<br /><em>à Manosque</em></h1>
+        <p class="hero-copy">Plats faits maison et naans cuits au tandoor. Le restaurant vous accueille à Manosque depuis 2001.</p>
+        <div class="hero-actions"><a class="button button-gold" href="#carte">Découvrir la carte <span aria-hidden="true">↓</span></a><a class="button button-outline" href={restaurant.phoneLink}>Réserver par téléphone</a></div>
+      </div>
+      <div class="hero-art" aria-hidden="true"><div class="sun-disc"></div><div class="arch arch-outer"><div class="arch arch-inner"></div><div class="arch-door"></div></div><span class="art-star star-one">✦</span><span class="art-star star-two">✧</span></div>
+      <div class="hero-foot"><span>Tradition · Générosité · Saveurs</span><span>04 92 71 12 79</span></div>
+    </section>
+
+    <section class="intro section" id="histoire">
+      <div class="intro-seal" aria-hidden="true"><span>Depuis</span><strong>2001</strong><span>Manosque</span></div>
+      <div class="intro-copy"><p class="eyebrow">Depuis 2001 à Manosque</p><h2>La cuisine indienne,<br /><em>tout simplement.</em></h2><p>Le Taj Mahal propose des plats faits maison, des currys, des biryanis et des pains naan. La carte est disponible au restaurant et à emporter.</p><p>Les naans sont cuits au tandoor, le four traditionnel en terre cuite. Certaines entrées tandoori sont également grillées dans ce four.</p></div>
+      <div class="intro-aside"><span class="aside-line"></span><p>Restaurant indien<br />à Manosque</p></div>
+    </section>
+
+    <section class="photo-section section" aria-label="Le restaurant et sa cuisine">
+      <div class="section-heading"><p class="eyebrow">Au Taj Mahal</p><h2>Le goût du fait maison</h2></div>
+      <div class="photo-grid">
+        <figure class="photo-card photo-card-food"><img src="/images/brochettes-tandoor.webp" alt="Brochettes en train de griller dans le tandoor" width="675" height="900" loading="lazy" decoding="async" /><figcaption>La cuisson au tandoor</figcaption></figure>
+        <figure class="photo-card photo-card-room"><img src="/images/salle-restaurant.webp" alt="Salle du restaurant Taj Mahal dressée, avec son décor inspiré du Taj Mahal" width="675" height="900" loading="lazy" decoding="async" /><figcaption>La salle du Taj Mahal</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section set-menu-section" id="menus">
+      <div class="section-heading"><p class="eyebrow">Les formules du restaurant</p><h2>Nos menus</h2><p>Menu du Midi, Menu du Chef et Menu Gourmet.</p></div>
+      <div class="set-menu-grid">
+        {setMenus.map((menu, index) => <article class:list={['set-menu-card', { featured: index === 1 }]}>
+          <div class="set-menu-top"><span class="menu-number">0{index + 1}</span><span class="set-menu-price">{menu.price}</span></div>
+          <h3>{menu.name}</h3>
+          {menu.note && <p class="set-menu-note">{menu.note}</p>}
+          <div class="set-menu-parts">{menu.parts.map((part) => <div class="set-menu-part"><h4>{part.heading}</h4>{part.description && <p>{part.description}</p>}{part.choices && <ul>{part.choices.map((choice) => <li><strong>{choice.name}</strong>{choice.description && <span> ({choice.description})</span>}</li>)}</ul>}{part.options && <p class="options">{part.options.join(' · ')}</p>}</div>)}</div>
+          <a class="text-link" href={restaurant.phoneLink}>Réserver par téléphone</a>
+        </article>)}
+      </div>
+    </section>
+
+    <section class="takeaway-band"><div><p class="eyebrow eyebrow-light">À emporter</p><h2>Les saveurs du Taj Mahal,<br /><em>à déguster chez vous.</em></h2><p>Profitez de <strong>{restaurant.takeawayDiscount} sur les plats à emporter.</strong></p></div><a class="button button-gold" href={restaurant.phoneLink}>Commander par téléphone</a></section>
+
+    <MenuSection />
+
+    <section class="contact-section" id="contact">
+      <div class="contact-heading"><p class="eyebrow eyebrow-light">Nous trouver</p><h2>À bientôt<br /><em>au Taj Mahal.</em></h2><p>Une réservation ou une commande à emporter ? Nous sommes à votre écoute.</p><a class="button button-gold" href={restaurant.phoneLink}>Appeler le {restaurant.phone}</a></div>
+      <div class="contact-details"><div class="contact-item"><span class="contact-icon" aria-hidden="true">⌖</span><div><h3>Adresse</h3><p>{restaurant.streetAddress}<br />{restaurant.postalCode} {restaurant.city}</p><a class="text-link light-link" href={restaurant.mapUrl} target="_blank" rel="noopener noreferrer">Itinéraire Google Maps</a></div></div><div class="contact-item"><span class="contact-icon" aria-hidden="true">◷</span><div><h3>Horaires</h3><p>Mardi au dimanche<br />12h00 - 14h00 · 19h00 - 22h30</p><small>Fermé le lundi</small></div></div><div class="contact-item"><span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6.6 3.5 9.4 3c.7-.1 1.3.3 1.5 1l1 3.1c.2.6 0 1.2-.5 1.6l-1.7 1.3a14 14 0 0 0 5.3 5.3l1.3-1.7c.4-.5 1-.7 1.6-.5l3.1 1c.7.2 1.1.8 1 1.5l-.5 2.8c-.1.7-.7 1.2-1.4 1.2A17.6 17.6 0 0 1 5.4 5c0-.8.5-1.4 1.2-1.5Z" /></svg></span><div><h3>Téléphone</h3><a href={restaurant.phoneLink} aria-label={`Appeler le ${restaurant.phone}`}>{restaurant.phone}</a></div></div></div>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="footer-brand" href="#accueil">TAJ MAHAL <span>MANOSQUE · DEPUIS 2001</span></a><p>{restaurant.fullAddress}<br /><a href={restaurant.phoneLink} aria-label={`Appeler le ${restaurant.phone}`}>{restaurant.phone}</a></p><p class="footer-hours">Mardi - dimanche · 12h-14h · 19h-22h30<br />Fermé le lundi</p><div class="legal-note"><span>© {new Date().getFullYear()} Restaurant Taj Mahal</span><span>Mentions légales à compléter avant publication (exploitant, responsable de publication, coordonnées).</span></div></footer>
+  <a class="mobile-call" href={restaurant.phoneLink} aria-label={`Appeler le Restaurant Taj Mahal au ${restaurant.phone}`}><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.6 3.5 9.4 3c.7-.1 1.3.3 1.5 1l1 3.1c.2.6 0 1.2-.5 1.6l-1.7 1.3a14 14 0 0 0 5.3 5.3l1.3-1.7c.4-.5 1-.7 1.6-.5l3.1 1c.7.2 1.1.8 1 1.5l-.5 2.8c-.1.7-.7 1.2-1.4 1.2A17.6 17.6 0 0 1 5.4 5c0-.8.5-1.4 1.2-1.5Z" /></svg> Appeler le restaurant</a>
+</BaseLayout>
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.mobile-menu-toggle');
+  const mobileNav = document.querySelector<HTMLElement>('.mobile-nav');
+  toggle?.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    toggle.setAttribute('aria-label', expanded ? 'Ouvrir le menu' : 'Fermer le menu');
+    if (mobileNav) mobileNav.hidden = expanded;
+  });
+  mobileNav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+    mobileNav.hidden = true; toggle?.setAttribute('aria-expanded', 'false');
+  }));
+</script>

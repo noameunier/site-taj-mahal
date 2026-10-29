@@ -1,0 +1,37 @@
+---
+import { restaurant } from '../data/restaurant';
+import '../styles/global.css';
+const { title = 'Restaurant indien à Manosque depuis 2001', description = 'Cuisine indienne traditionnelle, spécialités tandoori, currys et naans au Restaurant Taj Mahal à Manosque.' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, restaurant.siteUrl).toString();
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#6f1922" />
+    <title>{title} | Taj Mahal Manosque</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="restaurant" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:title" content={`${title} | Taj Mahal Manosque`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org', '@type': 'Restaurant', name: restaurant.name,
+      description, telephone: restaurant.phone, url: restaurant.siteUrl,
+      foundingDate: String(restaurant.since),
+      servesCuisine: 'Cuisine indienne', priceRange: '€€',
+      address: { '@type': 'PostalAddress', streetAddress: restaurant.streetAddress, postalCode: restaurant.postalCode, addressLocality: restaurant.city, addressCountry: 'FR' },
+      openingHoursSpecification: [
+        { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'], opens: '12:00', closes: '14:00' },
+        { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'], opens: '19:00', closes: '22:30' },
+      ],
+    })} />
+    <slot name="head" />
+  </head>
+  <body><slot /></body>
+</html>

@@ -1,0 +1,38 @@
+---
+import { categories } from '../data/menu';
+import DishList from './DishList.astro';
+---
+<section class="section menu-section" id="carte" aria-labelledby="menu-title">
+  <div class="section-heading">
+    <p class="eyebrow">Saveurs & savoir-faire</p>
+    <h2 id="menu-title">La carte</h2>
+    <p>Découvrez nos spécialités, préparées dans la tradition indienne.</p>
+  </div>
+  <nav class="menu-nav" aria-label="Catégories de la carte">
+    {categories.map((category, index) => <a href={`#${category.id}`} class:list={{ active: index === 0 }}>{category.navLabel ?? category.title}</a>)}
+  </nav>
+  <p class="menu-general-note">Les plats principaux sont préparés avec de la crème. Pain et riz en supplément.</p>
+  <div class="menu-categories">
+    {categories.map((category) => <section class="menu-category" id={category.id} aria-labelledby={`${category.id}-title`}>
+      <header class="category-heading">
+        <h3 id={`${category.id}-title`}>{category.title}</h3>
+        {category.subtitle && <span>{category.subtitle}</span>}
+        {category.note && <p>{category.note}</p>}
+      </header>
+      {category.groups
+        ? category.groups.map((group) => <div class="menu-group"><h4 class="menu-group-title">{group.title}</h4><DishList dishes={group.dishes} /></div>)
+        : <DishList dishes={category.dishes ?? []} />}
+    </section>)}
+  </div>
+  <p class="menu-caveat">Les prix et compositions sont retranscrits à partir du menu fourni. Merci de confirmer leur actualité avant publication.</p>
+</section>
+<script>
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('.menu-nav a')];
+  const sections = links.map((link) => document.querySelector<HTMLElement>(link.hash)).filter(Boolean) as HTMLElement[];
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) if (entry.isIntersecting) {
+      links.forEach((link) => link.classList.toggle('active', link.hash === `#${entry.target.id}`));
+    }
+  }, { rootMargin: '-22% 0px -70% 0px' });
+  sections.forEach((section) => observer.observe(section));
+</script>

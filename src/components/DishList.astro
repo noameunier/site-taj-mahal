@@ -1,0 +1,11 @@
+---
+import type { Dish } from '../data/menu';
+const { dishes } = Astro.props as { dishes: Dish[] };
+---
+<ul class="dish-list">
+  {dishes.map((dish) => <li class="dish">
+    <div class="dish-title"><h4>{dish.name}{dish.english && <span class="english"> · {dish.english}</span>}{dish.detail && <span class="dish-detail"> · {dish.detail}</span>}</h4>{dish.price && <span class="price">{dish.price}</span>}</div>
+    {dish.description && <p>{dish.description}</p>}
+    {dish.englishDescription && <p class="english-description" lang="en">{dish.englishDescription}</p>}
+  </li>)}
+</ul>
