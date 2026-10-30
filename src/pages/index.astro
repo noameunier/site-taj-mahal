@@ -102,9 +102,20 @@ import { reviews } from '../data/reviews';
     const pauseButton = reviewCarousel.querySelector<HTMLButtonElement>('.review-pause');
     let current = 0;
     let timer: number | undefined;
+    let transitionTimer: number | undefined;
     const show = (index: number) => {
+      if (transitionTimer !== undefined) window.clearTimeout(transitionTimer);
+      slides[current]?.classList.remove('is-entering');
       current = (index + slides.length) % slides.length;
-      slides.forEach((slide, i) => { slide.hidden = i !== current; });
+      slides.forEach((slide, i) => {
+        slide.hidden = i !== current;
+        if (i === current) {
+          // Restart the entrance animation when the active review changes.
+          void slide.offsetWidth;
+          slide.classList.add('is-entering');
+        }
+      });
+      transitionTimer = window.setTimeout(() => slides[current]?.classList.remove('is-entering'), 650);
       if (count) count.textContent = `${current + 1} / ${slides.length}`;
     };
     const stop = () => { if (timer !== undefined) window.clearInterval(timer); timer = undefined; };
