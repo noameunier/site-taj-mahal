@@ -7,10 +7,10 @@ import { setMenus } from '../data/menu';
 <BaseLayout>
   <header class="site-header">
     <a class="brand" href="#accueil" aria-label="Restaurant Taj Mahal, accueil"><span class="brand-mark" aria-hidden="true">✦</span><span>TAJ <b>MAHAL</b><small>MANOSQUE · DEPUIS 2001</small></span></a>
-    <nav class="primary-nav" aria-label="Navigation principale"><a href="#accueil">Accueil</a><a href="#carte">La carte</a><a href="#menus">Menus</a><a href="#histoire">Notre cuisine</a><a href="#contact">Contact</a></nav>
+    <nav class="primary-nav" aria-label="Navigation principale"><a href="#accueil">Accueil</a><a href="#carte">La carte</a><a href="#menus">Menus</a><a href="#histoire">Notre cuisine</a><a href="#photos-avis">Photos & avis</a><a href="#contact">Contact</a></nav>
     <a class="button button-small header-call" href={restaurant.phoneLink}>Appeler</a>
     <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Ouvrir le menu">☰</button>
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile" hidden><a href="#accueil">Accueil</a><a href="#carte">La carte</a><a href="#menus">Menus</a><a href="#histoire">Notre cuisine</a><a href="#contact">Contact</a><a href={restaurant.phoneLink}>Appeler le restaurant</a></nav>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile" hidden><a href="#accueil">Accueil</a><a href="#carte">La carte</a><a href="#menus">Menus</a><a href="#histoire">Notre cuisine</a><a href="#photos-avis">Photos & avis</a><a href="#contact">Contact</a><a href={restaurant.phoneLink}>Appeler le restaurant</a></nav>
   </header>
   <main>
     <section class="hero" id="accueil">
@@ -30,12 +30,17 @@ import { setMenus } from '../data/menu';
       <div class="intro-aside"><span class="aside-line"></span><p>Restaurant indien<br />à Manosque</p></div>
     </section>
 
-    <section class="photo-section section" aria-label="Le restaurant et sa cuisine">
-      <div class="section-heading"><p class="eyebrow">Au Taj Mahal</p><h2>Le goût du fait maison</h2></div>
+    <section class="photo-section section" id="photos-avis" aria-label="Photos et avis du restaurant">
+      <div class="section-heading"><p class="eyebrow">Au Taj Mahal</p><h2>Photos & avis</h2><p>Quelques images du restaurant et de sa cuisine.</p></div>
       <div class="photo-grid">
-        <figure class="photo-card photo-card-food"><img src="/images/brochettes-tandoor.webp" alt="Brochettes en train de griller dans le tandoor" width="675" height="900" loading="lazy" decoding="async" /><figcaption>La cuisson au tandoor</figcaption></figure>
+        <figure class="photo-card photo-card-food"><img src="/images/brochettes-tandoor.webp" alt="Brochettes de viande grillant au-dessus des braises dans le tandoor" width="1200" height="1600" loading="lazy" decoding="async" /><figcaption>Les brochettes au tandoor</figcaption></figure>
         <figure class="photo-card photo-card-room"><img src="/images/salle-restaurant.webp" alt="Salle du restaurant Taj Mahal dressée, avec son décor inspiré du Taj Mahal" width="675" height="900" loading="lazy" decoding="async" /><figcaption>La salle du Taj Mahal</figcaption></figure>
+        <figure class="photo-card photo-card-room"><img src="/images/salle-ambiance.webp" alt="Salle du restaurant dans une lumière tamisée, avec plafond ajouré et mobilier sculpté" width="1179" height="1463" loading="lazy" decoding="async" /><figcaption>Une autre vue de la salle</figcaption></figure>
       </div>
+      <aside class="review-panel">
+        <div><p class="eyebrow">Votre expérience compte</p><h3>Les avis de nos clients</h3><p>Consultez les avis publiés sur Google ou partagez votre expérience après votre visite.</p></div>
+        <a class="button button-small" href={restaurant.mapUrl} target="_blank" rel="noopener noreferrer">Voir les avis sur Google <span aria-hidden="true">↗</span></a>
+      </aside>
     </section>
 
     <section class="section set-menu-section" id="menus">
@@ -57,7 +62,7 @@ import { setMenus } from '../data/menu';
 
     <section class="contact-section" id="contact">
       <div class="contact-heading"><p class="eyebrow eyebrow-light">Nous trouver</p><h2>À bientôt<br /><em>au Taj Mahal.</em></h2><p>Une réservation ou une commande à emporter ? Nous sommes à votre écoute.</p><a class="button button-gold" href={restaurant.phoneLink}>Appeler le {restaurant.phone}</a></div>
-      <div class="contact-details"><div class="contact-item"><span class="contact-icon" aria-hidden="true">⌖</span><div><h3>Adresse</h3><p>{restaurant.streetAddress}<br />{restaurant.postalCode} {restaurant.city}</p><a class="text-link light-link" href={restaurant.mapUrl} target="_blank" rel="noopener noreferrer">Itinéraire Google Maps</a></div></div><div class="contact-item"><span class="contact-icon" aria-hidden="true">◷</span><div><h3>Horaires</h3><p>Mardi au dimanche<br />12h00 - 14h00 · 19h00 - 22h30</p><small>Fermé le lundi</small></div></div><div class="contact-item"><span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6.6 3.5 9.4 3c.7-.1 1.3.3 1.5 1l1 3.1c.2.6 0 1.2-.5 1.6l-1.7 1.3a14 14 0 0 0 5.3 5.3l1.3-1.7c.4-.5 1-.7 1.6-.5l3.1 1c.7.2 1.1.8 1 1.5l-.5 2.8c-.1.7-.7 1.2-1.4 1.2A17.6 17.6 0 0 1 5.4 5c0-.8.5-1.4 1.2-1.5Z" /></svg></span><div><h3>Téléphone</h3><a href={restaurant.phoneLink} aria-label={`Appeler le ${restaurant.phone}`}>{restaurant.phone}</a></div></div></div>
+      <div class="contact-details"><div class="contact-item"><span class="contact-icon" aria-hidden="true">⌖</span><div><h3>Adresse</h3><p>{restaurant.streetAddress}<br />{restaurant.postalCode} {restaurant.city}</p><a class="text-link light-link" href={restaurant.mapUrl} target="_blank" rel="noopener noreferrer">Itinéraire Google Maps</a></div></div><div class="contact-item"><span class="contact-icon" aria-hidden="true">◷</span><div><h3>Horaires</h3><p>Mardi au dimanche<br />12h00 - 14h00 · 19h00 - 22h30</p><small>Fermé le lundi</small></div></div><div class="contact-item"><span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6.6 3.5 9.4 3c.7-.1 1.3.3 1.5 1l1 3.1c.2.6 0 1.2-.5 1.6l-1.7 1.3a14 14 0 0 0 5.3 5.3l1.3-1.7c.4-.5 1-.7 1.6-.5l3.1 1c.7.2 1.1.8 1 1.5l-.5 2.8c-.1.7-.7 1.2-1.4 1.2A17.6 17.6 0 0 1 5.4 5c0-.8.5-1.4 1.2-1.5Z" /></svg></span><div><h3>Téléphone</h3><a href={restaurant.phoneLink} aria-label={`Appeler le ${restaurant.phone}`}>{restaurant.phone}</a></div></div><div class="contact-item"><span class="contact-icon" aria-hidden="true">↗</span><div><h3>Avis</h3><a href={restaurant.mapUrl} target="_blank" rel="noopener noreferrer">Lire les avis sur Google</a></div></div></div>
     </section>
   </main>
   <footer class="site-footer"><a class="footer-brand" href="#accueil">TAJ MAHAL <span>MANOSQUE · DEPUIS 2001</span></a><p>{restaurant.fullAddress}<br /><a href={restaurant.phoneLink} aria-label={`Appeler le ${restaurant.phone}`}>{restaurant.phone}</a></p><p class="footer-hours">Mardi - dimanche · 12h-14h · 19h-22h30<br />Fermé le lundi</p><div class="legal-note"><span>© {new Date().getFullYear()} Restaurant Taj Mahal</span><span>Mentions légales à compléter avant publication (exploitant, responsable de publication, coordonnées).</span></div></footer>
