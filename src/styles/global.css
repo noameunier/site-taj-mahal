@@ -27,20 +27,19 @@
 .review-panel .eyebrow{margin:0}
 .review-panel{display:grid;grid-template-columns:1fr auto;align-items:start}
 .review-heading{grid-column:1/-1}
-.review-carousel{min-width:0;max-width:760px}
+.review-carousel{min-width:0;max-width:760px;display:grid}
+.review-slide{grid-area:1/1}
 .review-slide[hidden]{display:none}
-.review-slide.is-entering{animation:review-slide-in .55s cubic-bezier(.2,.7,.2,1) both}
-@keyframes review-slide-in{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:translateX(0)}}
+.review-slide{will-change:opacity,transform}
+.review-slide.is-entering{animation:review-slide-in .85s cubic-bezier(.22,.7,.2,1) both}
+.review-slide.is-leaving{animation:review-slide-out .75s cubic-bezier(.4,0,.6,1) both}
+@keyframes review-slide-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes review-slide-out{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-8px)}}
 .review-stars{color:#d59519!important;letter-spacing:.15em;font-size:1.1rem!important;margin:0 0 .6rem!important}
 .review-slide blockquote{margin:0;color:var(--ink);font:400 clamp(1rem,2vw,1.25rem)/1.65 var(--serif)}
 .review-author{margin:.9rem 0 0!important;font-size:.8rem!important;font-weight:700;color:var(--wine-dark)!important}
 .review-author span{display:block;margin-top:.15rem;font-size:.68rem;font-weight:400;color:var(--muted)}
-.review-controls{display:flex;align-items:center;gap:.7rem;margin-top:1.2rem}
-.review-controls button{border:1px solid var(--line);background:#fff;color:var(--wine-dark);border-radius:2px;min-width:38px;height:36px;cursor:pointer}
-.review-controls button:hover{background:var(--wine);color:#fff}
-.review-controls .review-count{font-size:.75rem;color:var(--muted);min-width:3rem;text-align:center}
-.review-controls .review-pause{font-size:.7rem;padding:0 .75rem;width:auto}
 .review-panel>.text-link{align-self:end;white-space:nowrap}
 @media(max-width:680px){.photo-section{padding-top:1rem}.photo-grid{grid-template-columns:1fr;gap:1rem}.photo-card img{height:clamp(300px,100vw,460px)}.review-panel{grid-template-columns:1fr;gap:1rem}.review-heading{grid-column:auto}.review-panel>.text-link{align-self:start}}
 @media(min-width:681px) and (max-width:900px){.photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(prefers-reduced-motion:reduce){.review-slide.is-entering{animation:none}}
+@media(prefers-reduced-motion:reduce){.review-slide.is-entering,.review-slide.is-leaving{animation:none}}
