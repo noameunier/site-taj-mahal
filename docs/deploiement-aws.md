@@ -1,4 +1,6 @@
-# Déploiement AWS (à autoriser séparément)
+# Déploiement AWS manuel S3/CloudFront (alternative)
+
+> Pour un déploiement plus simple relié à GitHub et à Amplify, utiliser plutôt [le guide Gandi + Route 53 + Amplify](deploiement-aws-gandi-route53-amplify.md). Ce document décrit une architecture manuelle alternative.
 
 Cette procédure décrit une cible ; **elle ne crée aucune ressource et n’autorise pas un déploiement**. Le dépôt actuel n’a pas encore de pipeline AWS. Faire valider les permissions, le budget et les changements DNS avant toute mise en œuvre.
 
