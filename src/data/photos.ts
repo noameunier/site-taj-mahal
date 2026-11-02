@@ -3,7 +3,7 @@ export const photos = [
     src: '/images/brochettes-tandoor.webp',
     alt: 'Brochettes de viande grillant au-dessus des braises dans le tandoor',
     width: 1200,
-    height: 1600,
+    height: 1584,
     kind: 'food',
   },
   {
@@ -45,7 +45,7 @@ export const photos = [
     src: '/images/tableau-taj-mahal.webp',
     alt: 'Tableau représentant Ganesh dans la salle du restaurant',
     width: 1400,
-    height: 1050,
+    height: 1044,
     kind: 'room',
   },
   {
