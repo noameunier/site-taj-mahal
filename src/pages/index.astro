@@ -4,14 +4,15 @@ import MenuSection from '../components/MenuSection.astro';
 import { restaurant } from '../data/restaurant';
 import { setMenus } from '../data/menu';
 import { reviews } from '../data/reviews';
+import PhotoGallery from '../components/PhotoGallery.astro';
 ---
 <BaseLayout>
   <header class="site-header">
     <a class="brand" href="#accueil" aria-label="Restaurant Taj Mahal, accueil"><span class="brand-mark" aria-hidden="true">✦</span><span>TAJ <b>MAHAL</b><small>MANOSQUE · DEPUIS 2001</small></span></a>
-    <nav class="primary-nav" aria-label="Navigation principale"><a href="#accueil">Accueil</a><a href="#carte">La carte</a><a href="#menus">Menus</a><a href="#histoire">Notre cuisine</a><a href="#photos-avis">Photos & avis</a><a href="#contact">Contact</a></nav>
+    <nav class="primary-nav" aria-label="Navigation principale"><a href="#accueil">Accueil</a><a href="#carte">La carte</a><a href="#menus">Menus</a><a href="#histoire">Notre cuisine</a><a href="/galerie/">Galerie</a><a href="#photos-avis">Photos & avis</a><a href="#contact">Contact</a></nav>
     <a class="button button-small header-call" href={restaurant.phoneLink}>Appeler</a>
     <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Ouvrir le menu">☰</button>
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile" hidden><a href="#accueil">Accueil</a><a href="#carte">La carte</a><a href="#menus">Menus</a><a href="#histoire">Notre cuisine</a><a href="#photos-avis">Photos & avis</a><a href="#contact">Contact</a><a href={restaurant.phoneLink}>Appeler le restaurant</a></nav>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile" hidden><a href="#accueil">Accueil</a><a href="#carte">La carte</a><a href="#menus">Menus</a><a href="#histoire">Notre cuisine</a><a href="/galerie/">Galerie photos</a><a href="#photos-avis">Photos & avis</a><a href="#contact">Contact</a><a href={restaurant.phoneLink}>Appeler le restaurant</a></nav>
   </header>
   <main>
     <section class="hero" id="accueil">
@@ -33,11 +34,8 @@ import { reviews } from '../data/reviews';
 
     <section class="photo-section section" id="photos-avis" aria-label="Photos et avis du restaurant">
       <div class="section-heading"><p class="eyebrow">Au Taj Mahal</p><h2>Photos & avis</h2><p>Quelques images du restaurant et de sa cuisine.</p></div>
-      <div class="photo-grid">
-        <figure class="photo-card photo-card-food"><img src="/images/brochettes-tandoor.webp" alt="Brochettes de viande grillant au-dessus des braises dans le tandoor" width="1200" height="1600" loading="lazy" decoding="async" /><figcaption>Les brochettes au tandoor</figcaption></figure>
-        <figure class="photo-card photo-card-room"><img src="/images/salle-restaurant.webp" alt="Salle du restaurant Taj Mahal dressée, avec son décor inspiré du Taj Mahal" width="675" height="900" loading="lazy" decoding="async" /><figcaption>La salle du Taj Mahal</figcaption></figure>
-        <figure class="photo-card photo-card-room"><img src="/images/salle-ambiance.webp" alt="Salle du restaurant dans une lumière tamisée, avec plafond ajouré et mobilier sculpté" width="1179" height="1463" loading="lazy" decoding="async" /><figcaption>Une autre vue de la salle</figcaption></figure>
-      </div>
+      <PhotoGallery limit={2} />
+      <a class="button button-small gallery-link" href="/galerie/">Voir toute la galerie <span aria-hidden="true">→</span></a>
       <div class="review-panel">
         <div class="review-heading"><p class="eyebrow">Ils en parlent</p><h3>Les avis de nos clients</h3></div>
         <div class="review-carousel" aria-roledescription="carrousel" aria-label="Avis Google">

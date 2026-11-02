@@ -26,6 +26,7 @@ Le build produit un site statique autonome dans `dist/`.
 - **Composition d’une formule** : modifier `setMenus` dans le même fichier. Les choix alternatifs restent explicitement séparés.
 - **Téléphone, adresse, horaires, offre à emporter et année d’ouverture** : modifier `src/data/restaurant.ts`.
 - **Domaine** : mettre à jour `siteUrl` dans `src/data/restaurant.ts`, `SITE_URL` à la construction si nécessaire, ainsi que le sitemap et `public/robots.txt`.
+- **Galerie** : ajouter les versions optimisées des images dans `public/images/` et leurs informations (texte alternatif, légende et dimensions) dans `src/data/photos.ts`. Les originaux non publiés sont rangés dans `ressources/photos-originales/`.
 
 Relancer `npm run build`, contrôler `dist/`, puis publier cette version.
 

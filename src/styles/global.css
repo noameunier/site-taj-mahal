@@ -16,6 +16,7 @@
 .photo-section{padding-top:2rem}
 .photo-section .section-heading{margin-bottom:2rem}
 .photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem}
+.photo-grid-preview{grid-template-columns:repeat(2,minmax(0,1fr))}
 .photo-card{position:relative;overflow:hidden;margin:0;min-height:300px;background:#281b17}
 .photo-card img{display:block;width:100%;height:clamp(300px,45vw,540px);object-fit:cover}
 .photo-card-food img{object-position:center 45%}
@@ -40,6 +41,10 @@
 .review-author{margin:.9rem 0 0!important;font-size:.8rem!important;font-weight:700;color:var(--wine-dark)!important}
 .review-author span{display:block;margin-top:.15rem;font-size:.68rem;font-weight:400;color:var(--muted)}
 .review-panel>.text-link{align-self:end;white-space:nowrap}
-@media(max-width:680px){.photo-section{padding-top:1rem}.photo-grid{grid-template-columns:1fr;gap:1rem}.photo-card img{height:clamp(300px,100vw,460px)}.review-panel{grid-template-columns:1fr;gap:1rem}.review-heading{grid-column:auto}.review-panel>.text-link{align-self:start}}
+.gallery-link{display:table;margin:1.5rem auto 0}
+.gallery-page .section-heading h1{font:500 clamp(2.7rem,6vw,4.5rem)/1.1 var(--serif);color:var(--wine-dark);margin:.6rem 0}
+.gallery-back{display:inline-block;margin-top:2rem}
+.gallery-header .button{white-space:nowrap}
+@media(max-width:680px){.photo-section{padding-top:1rem}.photo-grid,.photo-grid-preview{grid-template-columns:1fr;gap:1rem}.photo-card img{height:clamp(300px,100vw,460px)}.review-panel{grid-template-columns:1fr;gap:1rem}.review-heading{grid-column:auto}.review-panel>.text-link{align-self:start}.gallery-header .primary-nav{display:none}}
 @media(min-width:681px) and (max-width:900px){.photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){.review-slide.is-entering,.review-slide.is-leaving{animation:none}}

@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PhotoGallery from '../components/PhotoGallery.astro';
+import { restaurant } from '../data/restaurant';
+---
+<BaseLayout title="Galerie photos" description="Photos du restaurant Taj Mahal à Manosque : la salle et la cuisine au tandoor.">
+  <header class="site-header gallery-header">
+    <a class="brand" href="/" aria-label="Restaurant Taj Mahal, accueil"><span class="brand-mark" aria-hidden="true">✦</span><span>TAJ <b>MAHAL</b><small>MANOSQUE · DEPUIS 2001</small></span></a>
+    <nav class="primary-nav" aria-label="Navigation principale"><a href="/#accueil">Accueil</a><a href="/#carte">La carte</a><a href="/#menus">Menus</a><a href="/#contact">Contact</a></nav>
+    <a class="button button-small" href="/#contact">Nous contacter</a>
+  </header>
+  <main>
+    <section class="photo-section section gallery-page">
+      <div class="section-heading"><p class="eyebrow">Le Taj Mahal en images</p><h1>Galerie photos</h1><p>Un aperçu de la salle et de la cuisine du restaurant à Manosque.</p></div>
+      <PhotoGallery />
+      <a class="text-link gallery-back" href="/">← Retour à l’accueil</a>
+    </section>
+  </main>
+  <footer class="site-footer gallery-footer">
+    <a class="footer-brand" href="/">TAJ MAHAL <span>MANOSQUE · DEPUIS 2001</span></a>
+    <p>{restaurant.fullAddress}<br /><a href={restaurant.phoneLink}>{restaurant.phone}</a></p>
+    <p class="footer-hours">Mardi - dimanche · 12h-14h · 19h-22h30<br />Fermé le lundi</p>
+    <div class="legal-note"><span>© {new Date().getFullYear()} Restaurant Taj Mahal</span><span><a href="/#contact">Contact</a></span></div>
+  </footer>
+</BaseLayout>
