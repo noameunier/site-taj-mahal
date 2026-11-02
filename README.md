@@ -33,7 +33,6 @@ Relancer `npm run build`, contrôler `dist/`, puis publier cette version.
 
 Pour l’hébergement recommandé sur AWS Amplify, avec le domaine enregistré chez Gandi, DNS dans Route 53 et déploiement automatique sur push de `main`, suivre [le guide détaillé](docs/deploiement-aws-gandi-route53-amplify.md). Le dépôt contient le fichier `amplify.yml` requis pour le build Amplify.
 
-Une architecture manuelle S3/CloudFront est décrite dans [l’ancien guide AWS](docs/deploiement-aws.md) et nécessite un pipeline distinct.
 
 ## À confirmer avant mise en ligne
 
