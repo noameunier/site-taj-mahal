@@ -2,7 +2,6 @@ export const photos = [
   {
     src: '/images/brochettes-tandoor.webp',
     alt: 'Brochettes de viande grillant au-dessus des braises dans le tandoor',
-    caption: 'Les brochettes au tandoor',
     width: 1200,
     height: 1600,
     kind: 'food',
@@ -10,23 +9,13 @@ export const photos = [
   {
     src: '/images/salle-restaurant.webp',
     alt: 'Salle du restaurant Taj Mahal dressée, avec son décor inspiré du Taj Mahal',
-    caption: 'La salle du Taj Mahal',
     width: 675,
     height: 900,
     kind: 'room',
   },
   {
-    src: '/images/salle-ambiance.webp',
-    alt: 'Salle du restaurant dans une lumière tamisée, avec plafond ajouré et mobilier sculpté',
-    caption: 'Une autre vue de la salle',
-    width: 1179,
-    height: 1463,
-    kind: 'room',
-  },
-  {
     src: '/images/facade-restaurant-nuit.webp',
     alt: 'Façade du restaurant Taj Mahal éclairée le soir, avec son enseigne visible',
-    caption: 'La façade du restaurant',
     width: 1400,
     height: 1050,
     kind: 'room',
@@ -34,7 +23,6 @@ export const photos = [
   {
     src: '/images/equipe-au-comptoir.webp',
     alt: 'Un membre de l’équipe derrière le comptoir, avec une commande à emporter',
-    caption: 'Au comptoir',
     width: 1400,
     height: 1050,
     kind: 'room',
@@ -42,7 +30,6 @@ export const photos = [
   {
     src: '/images/assiette-grillee.webp',
     alt: 'Assiette de morceaux grillés accompagnés de salade et de sauces',
-    caption: 'Une assiette à partager',
     width: 1200,
     height: 1600,
     kind: 'food',
@@ -50,7 +37,6 @@ export const photos = [
   {
     src: '/images/table-pres-fenetre.webp',
     alt: 'Table dressée près de la fenêtre, devant des paravents décoratifs',
-    caption: 'Une table dans la salle',
     width: 1400,
     height: 1050,
     kind: 'room',
@@ -58,7 +44,6 @@ export const photos = [
   {
     src: '/images/tableau-taj-mahal.webp',
     alt: 'Tableau représentant Ganesh dans la salle du restaurant',
-    caption: 'Un décor inspiré de l’Inde',
     width: 1400,
     height: 1050,
     kind: 'room',
@@ -66,25 +51,15 @@ export const photos = [
   {
     src: '/images/detail-decor-indien.webp',
     alt: 'Bol en cuivre contenant une préparation crémeuse avec des morceaux de tomate et des herbes fraîches',
-    caption: 'Un plat servi au restaurant',
     width: 1200,
     height: 1600,
-    kind: 'room',
-  },
-  {
-    src: '/images/decor-ganesh.webp',
-    alt: 'Tableau représentant le Taj Mahal dans la salle du restaurant',
-    caption: 'Un décor inspiré de l’Inde',
-    width: 558,
-    height: 997,
-    kind: 'room',
+    kind: 'food',
   },
   {
     src: '/images/details-decor-salle.webp',
     alt: 'Panneaux sculptés, plafond ajouré et tableau décoratif dans le couloir de la salle',
-    caption: 'Les détails du décor',
     width: 894,
     height: 1600,
-    kind: 'food',
+    kind: 'room',
   },
 ] as const;

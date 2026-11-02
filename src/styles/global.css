@@ -21,7 +21,6 @@
 .photo-card img{display:block;width:100%;height:clamp(300px,45vw,540px);object-fit:cover}
 .photo-card-food img{object-position:center 45%}
 .photo-card-room img{object-position:center 55%}
-.photo-card figcaption{position:absolute;inset:auto 0 0;padding:2.5rem 1.25rem 1.1rem;color:#fff;font:500 1.35rem var(--serif);background:linear-gradient(transparent,#160e0bd9)}
 .review-panel{margin-top:2rem;padding:clamp(1.5rem,4vw,2.5rem);display:flex;justify-content:space-between;align-items:center;gap:2rem;background:#f1ebe1;border-left:3px solid var(--gold)}
 .review-panel h3{font:500 clamp(1.5rem,3vw,2.1rem) var(--serif);margin:.25rem 0 .5rem;color:var(--wine-dark)}
 .review-panel p:not(.eyebrow){max-width:620px;margin:0;color:var(--muted);font-size:.9rem;line-height:1.65}

@@ -7,6 +7,5 @@ const displayedPhotos = limit ? photos.slice(0, limit) : photos;
 <div class:list={['photo-grid', { 'photo-grid-preview': Boolean(limit) }]}>
   {displayedPhotos.map((photo) => <figure class:list={['photo-card', `photo-card-${photo.kind}`]}>
     <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
-    <figcaption>{photo.caption}</figcaption>
   </figure>)}
 </div>
