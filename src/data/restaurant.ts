@@ -8,6 +8,7 @@ export const restaurant = {
   country: 'FR',
   fullAddress: '124 Rue Joséphine Baker, 04100 Manosque',
   mapUrl: 'https://www.google.com/maps/search/?api=1&query=Restaurant%20Taj%20Mahal%2C%20124%20Rue%20Jos%C3%A9phine%20Baker%2C%2004100%20Manosque',
+  reviewUrl: 'https://www.google.com/maps/place/Le+Taj+Mahal/@43.8306732,5.7854424,17z/data=!4m8!3m7!1s0x12cbcdb17ef5b755:0xc6c0342a3b0b607e!8m2!3d43.8306732!4d5.7854424!9m1!1b1!16s%2Fg%2F11b6d6m3xm?entry=ttu&g_ep=EgoyMDI2MTAyOC4wIKXMDSoASAFQAw%3D%3D',
   openingHours: [
     { days: 'Mardi - dimanche', lunch: '12h00 - 14h00', dinner: '19h00 - 22h30' },
   ],
